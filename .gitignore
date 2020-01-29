@@ -9,6 +9,7 @@
 
 # IDEA files
 out/
+target/
 .idea/
 .idea_modules/
 *.iml
