@@ -1,7 +1,5 @@
 package com.epam.delivery_cost;
 
-import com.epam.delivery_cost.Delivery;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
