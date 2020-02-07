@@ -61,7 +61,7 @@ public class DeliveryService {
         boolean checkResult;
         try {
             double enteredDoubleValue = Double.parseDouble(value);
-            checkResult = enteredDoubleValue >0;
+            checkResult = enteredDoubleValue > 0;
         } catch (NumberFormatException ex) {
             checkResult = false;
         }
@@ -84,10 +84,12 @@ public class DeliveryService {
     }
 
     public double calculatePriceForDelivery(Delivery delivery) {
-        double distanceDiscount = delivery.getDeliveryDistance()>1000 ? 0.75 : 1;
-        double weightDiscount = delivery.getCargoWeight()>100 ? 0.75 : 1;
 
-        return delivery.getPricePerKm() * delivery.getDeliveryDistance()*distanceDiscount + delivery.getPricePerKg() * delivery.getCargoWeight()*weightDiscount;
+        double costBasedOnDistance = delivery.getPricePerKm() * delivery.getDeliveryDistance() * delivery.getDistanceDiscount();
+        double costBasedOnWeight = delivery.getPricePerKg() * delivery.getCargoWeight() * delivery.getWeightDiscount();
+        double totalCost = costBasedOnDistance + costBasedOnWeight;
+
+        return totalCost;
 
     }
 }

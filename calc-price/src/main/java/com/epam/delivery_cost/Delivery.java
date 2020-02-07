@@ -9,6 +9,9 @@ public class Delivery {
     private double deliveryDistance;
     private double cargoWeight;
 
+    private double distanceDiscount = 1;
+    private double weightDiscount = 1;
+
     public Delivery() {
     }
 
@@ -51,20 +54,20 @@ public class Delivery {
         this.cargoWeight = cargoWeight;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Delivery delivery = (Delivery) o;
-        return Double.compare(delivery.pricePerKm, pricePerKm) == 0 &&
-                Double.compare(delivery.pricePerKg, pricePerKg) == 0 &&
-                Double.compare(delivery.deliveryDistance, deliveryDistance) == 0 &&
-                Double.compare(delivery.cargoWeight, cargoWeight) == 0;
+    public double getDistanceDiscount() {
+        return distanceDiscount;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(pricePerKm, pricePerKg, deliveryDistance, cargoWeight);
+    public void setDistanceDiscount(double distanceDiscount) {
+        this.distanceDiscount = distanceDiscount;
+    }
+
+    public double getWeightDiscount() {
+        return weightDiscount;
+    }
+
+    public void setWeightDiscount(double weightDiscount) {
+        this.weightDiscount = weightDiscount;
     }
 
 
