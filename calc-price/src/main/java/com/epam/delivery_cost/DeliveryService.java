@@ -88,5 +88,6 @@ public class DeliveryService {
         double weightDiscount = delivery.getCargoWeight()>100 ? 0.75 : 1;
 
         return delivery.getPricePerKm() * delivery.getDeliveryDistance()*distanceDiscount + delivery.getPricePerKg() * delivery.getCargoWeight()*weightDiscount;
+
     }
 }
