@@ -3,6 +3,7 @@ package com.epam.delivery_cost;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class DeliveryService {
@@ -83,11 +84,11 @@ public class DeliveryService {
         return finalValue;
     }
 
-    public double calculatePriceForDelivery(Delivery delivery) {
+    public BigDecimal calculatePriceForDelivery(Delivery delivery) {
 
-        double costBasedOnDistance = delivery.getPricePerKm() * delivery.getDeliveryDistance() * delivery.getDistanceDiscount();
-        double costBasedOnWeight = delivery.getPricePerKg() * delivery.getCargoWeight() * delivery.getWeightDiscount();
-        double totalCost = costBasedOnDistance + costBasedOnWeight;
+        BigDecimal costBasedOnDistance = new BigDecimal(delivery.getPricePerKm() * delivery.getDeliveryDistance() * delivery.getDistanceDiscount());
+        BigDecimal costBasedOnWeight = new BigDecimal(delivery.getPricePerKg() * delivery.getCargoWeight() * delivery.getWeightDiscount());
+        BigDecimal totalCost = costBasedOnDistance.add(costBasedOnWeight);
 
         return totalCost;
 

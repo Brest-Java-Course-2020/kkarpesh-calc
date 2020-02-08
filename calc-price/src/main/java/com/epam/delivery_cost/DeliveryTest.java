@@ -15,8 +15,8 @@ public class DeliveryTest {
 
         try {
             System.out.println("Reading prices from files...");
-            File pricePerKg = new File("/home/carpeat/development/kkarpesh-calc/calc-price/src/main/java/com/epam/pricePerKg");
-            File pricePerKm = new File("/home/carpeat/development/kkarpesh-calc/calc-price/src/main/java/com/epam/pricePerKm");
+            File pricePerKg = new File("pricePerKg");
+            File pricePerKm = new File("pricePerKm");
 
             delivery.setPricePerKg(deliveryService.readFromFile(pricePerKg));
             delivery.setPricePerKm(deliveryService.readFromFile(pricePerKm));
