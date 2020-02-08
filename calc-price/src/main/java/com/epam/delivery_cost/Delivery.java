@@ -5,10 +5,8 @@ import java.util.Objects;
 public class Delivery {
     private double pricePerKm;
     private double pricePerKg;
-
     private double deliveryDistance;
     private double cargoWeight;
-
     private double distanceDiscount = 1;
     private double weightDiscount = 1;
 
