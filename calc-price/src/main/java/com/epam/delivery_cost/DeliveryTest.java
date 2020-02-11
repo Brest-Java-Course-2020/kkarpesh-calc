@@ -1,5 +1,8 @@
 package com.epam.delivery_cost;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,15 +11,18 @@ import java.util.Scanner;
 
 public class DeliveryTest {
     public static void main(String[] args) {
-        Delivery delivery = new Delivery();
-        DeliveryService deliveryService = new DeliveryService();
+
+        ApplicationContext applicationContext =
+                new ClassPathXmlApplicationContext("application-config.xml");
+        Delivery delivery = (Delivery) applicationContext.getBean("delivery");
+        DeliveryService deliveryService = (DeliveryService) applicationContext.getBean("deliveryService");
 
 
 
         try {
             System.out.println("Reading prices from files...");
-            File pricePerKg = new File("pricePerKg");
-            File pricePerKm = new File("pricePerKm");
+            File pricePerKg = new File("calc-price/src/main/resources/pricePerKg");
+            File pricePerKm = new File("calc-price/src/main/resources/pricePerKm");
 
             delivery.setPricePerKg(deliveryService.readFromFile(pricePerKg));
             delivery.setPricePerKm(deliveryService.readFromFile(pricePerKm));
